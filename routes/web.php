@@ -11,8 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home');
+use App\Http\Controllers\Frontend\HomeController;
+
+Route::group(['namespace' => 'Frontend'], function () {
+    Route::get('/', [HomeController::class, 'showHomePage'])->name('homepage');
 });
+// Route::get('/', function () {
+//     return view('frontend.home');
+// });
 
 
