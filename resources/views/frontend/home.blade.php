@@ -23,10 +23,20 @@
                         </p>
                     </a>
                     <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
-                    </div>
-                    <strong class="text-muted">BDT {{ $product->price }}</strong>
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ $product->id }}">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-sm btn-outline-secondary">Add to cart</button>
+                        </div>
+                    </form>
+                    <strong class="text-muted">
+                        @if ($product->sales_price)
+                            BDT<strike>{{ $product->price }}</strike> {{ $product->sales_price }}
+                        @else
+                            BDT {{ $product->price }}
+                        @endif
+                    </strong>
                     </div>
                 </div>
                 </div>
