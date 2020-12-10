@@ -17,7 +17,6 @@ class CartController extends Controller
     public function showCart(){
         dd(Cart::content());
     }
-
     public function addToCart(Request $request){
         try {
             $this->validate($request,[
