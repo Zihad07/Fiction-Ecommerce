@@ -12,12 +12,16 @@
             {{-- {{ dd($product->getMedia('products')) }} --}}
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" src="{{ $product->getFirstMediaUrl('products') }}" alt="{{ $product->title }}">
+                    <a href="{{ route('frontend.product.details',['slug' => $product->slug]) }}">
+                        <img class="card-img-top" src="{{ $product->getFirstMediaUrl('products') }}" alt="{{ $product->title }}">
+                    <a>
                     {{-- <img class="card-img-top" src="{{ $product->getMedia('products')}}" alt="{{ $product->title }}"> --}}
                 <div class="card-body">
-                    <p class="card-text">
-                        {{ $product->title }}
-                    </p>
+                    <a href="{{ route('frontend.product.details',['slug' => $product->slug]) }}">
+                        <p class="card-text">
+                            {{ $product->title }}
+                        </p>
+                    </a>
                     <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>

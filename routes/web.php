@@ -12,9 +12,11 @@
 */
 
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProductController;
 
 Route::group(['namespace' => 'Frontend'], function () {
-    Route::get('/', [HomeController::class, 'showHomePage'])->name('homepage');
+    Route::get('/', [HomeController::class, 'showHomePage'])->name('frontend.home');
+    Route::get('/product/{slug}', [ProductController::class, 'showDetails'])->name('frontend.product.details');
 });
 // Route::get('/', function () {
 //     return view('frontend.home');
