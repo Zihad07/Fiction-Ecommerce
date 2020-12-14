@@ -9,6 +9,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        @livewireStyles
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ mix('css/custom.css') }}">
@@ -24,6 +25,7 @@
         @include('frontend.partials._footer')
 
 
+        @livewireScripts
         <script src="{{ mix('js/app.js') }}"></script>
         @yield('before-body')
     </body>

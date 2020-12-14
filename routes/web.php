@@ -22,6 +22,7 @@ Route::group(['namespace' => 'Frontend'], function () {
 
     Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
     Route::post('/cart', [CartController::class, 'addtoCart'])->name('cart.add');
+    Route::get('/cartdetails',[CartController::class, 'cartDetails'])->name('cart.details');
 });
 // Route::get('/', function () {
 //     return view('frontend.home');

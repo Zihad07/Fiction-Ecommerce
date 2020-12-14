@@ -56,4 +56,8 @@ class CartController extends Controller
 
         return redirect()->back();
     }
+
+    public function cartDetails() {
+        return view('frontend.products.cart_details');
+    }
 }

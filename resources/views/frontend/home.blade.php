@@ -16,20 +16,23 @@
                         <img class="card-img-top" src="{{ $product->getFirstMediaUrl('products') }}" alt="{{ $product->title }}">
                     <a>
                     {{-- <img class="card-img-top" src="{{ $product->getMedia('products')}}" alt="{{ $product->title }}"> --}}
-                <div class="card-body">
+                    <div class="card-body">
                     <a href="{{ route('frontend.product.details',['slug' => $product->slug]) }}">
                         <p class="card-text">
                             {{ $product->title }}
                         </p>
                     </a>
                     <div class="d-flex justify-content-between align-items-center">
-                    <form action="{{ route('cart.add') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="user_id" value="{{ $product->id }}">
-                        <div class="btn-group">
-                            <button type="submit" class="btn btn-sm btn-outline-secondary">Add to cart</button>
-                        </div>
-                    </form>
+<!--                    <form action="{{ route('cart.add') }}" method="POST">-->
+<!--                        @csrf-->
+<!--                        <input type="hidden" name="user_id" value="{{ $product->id }}">-->
+<!--                        <div class="btn-group">-->
+<!--                            <button type="submit" class="btn btn-sm btn-outline-secondary">Add to cart</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+                    <div class="btn-group">
+                        @livewire('add-product-to-cart', ['product' => $product->id])
+                    </div>
                     <strong class="text-muted">
                         @if ($product->sales_price)
                             BDT<strike>{{ $product->price }}</strike> {{ $product->sales_price }}
